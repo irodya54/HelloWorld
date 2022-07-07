@@ -3,10 +3,7 @@ package jm.task.core.jdbc.dao;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,18 +49,23 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        String saveUser = "INSERT users (name, lastName, age) VALUES ('" + name + "', '" + lastName + "', " + age + ");";
-        try (Statement statement = CONNECTION.createStatement()) {
-            statement.execute(saveUser);
+        String saveUser = "INSERT INTO users (name, lastName, age) VALUES (?, ?, ?)";
+        try (PreparedStatement preparedStatement = CONNECTION.prepareStatement(saveUser)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setByte(3, age);
+            preparedStatement.execute(saveUser);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void removeUserById(long id) {
-        String removeUserId = "DELETE FROM users WHERE id = " + id + ";";
-        try (Statement statement = CONNECTION.createStatement()) {
-            statement.execute(removeUserId);
+        String removeUserId = "DELETE FROM users WHERE id = ?";
+
+        try (PreparedStatement preparedStatement = CONNECTION.prepareStatement(removeUserId)) {
+            preparedStatement.setLong(1, id);
+            preparedStatement.execute(removeUserId);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -88,7 +90,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void cleanUsersTable() {
-        String cleanTable = "DELETE FROM users";
+        String cleanTable = "DELETE FROM IF FROM EXISTS users";
         try (Statement statement = CONNECTION.createStatement()) {
             statement.execute(cleanTable);
         } catch (SQLException e) {
