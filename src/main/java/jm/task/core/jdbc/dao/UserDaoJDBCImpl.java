@@ -11,7 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
-    public static final Connection CONNECTION = Util.getConnection();
+    public static final Connection CONNECTION;
+
+    static {
+        try {
+            CONNECTION = Util.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public UserDaoJDBCImpl() {
 
     }
