@@ -22,9 +22,9 @@ public class Main {
         userDao.saveUser("Name4", "LastName4", (byte) 38);
 
         userDao.removeUserById(1);
-        List <User> user = userDao.getAllUsers();
-        System.out.println(user);
-//        userDao.cleanUsersTable();
-//        userDao.dropUsersTable();
+//        List <User> user = userDao.getAllUsers();
+//        System.out.println(user);
+        userDao.cleanUsersTable();
+        userDao.dropUsersTable();
     }
 }

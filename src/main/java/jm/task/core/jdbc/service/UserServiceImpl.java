@@ -7,13 +7,13 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
     public void createUsersTable() {
-//        UserDaoJDBCImpl udi = new UserDaoJDBCImpl();
-//        udi.createUsersTable();
+        UserDaoJDBCImpl udi = new UserDaoJDBCImpl();
+        udi.createUsersTable();
     }
 
     public void dropUsersTable() {
-//        UserDaoJDBCImpl udi = new UserDaoJDBCImpl();
-//        udi.dropUsersTable();
+        UserDaoJDBCImpl udi = new UserDaoJDBCImpl();
+        udi.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
