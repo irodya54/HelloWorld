@@ -9,7 +9,7 @@ import java.util.Comparator;
 public class Util {
     public static Connection getConnection() throws SQLException {
 
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/newschema", "root", "Tuzikson2607DB");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/newschema", "root", "Tuzikson2607DB");
 
     }
 }
