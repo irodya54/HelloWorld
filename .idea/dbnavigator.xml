@@ -32,7 +32,7 @@
       <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
     </connection>
     <connection id="cadf597d-3af2-4cd3-8b12-5834b859b1ac">
-      <console name="Connection 1" type="STANDARD" schema="mysql" session="Main" />
+      <console name="Connection 1" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
