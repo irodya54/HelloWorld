@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/Main.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/model/User.java" charset="windows-1251" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
